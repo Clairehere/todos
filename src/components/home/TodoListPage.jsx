@@ -1,7 +1,7 @@
 import {withTranslation} from "react-i18next"
 import {connect} from 'react-redux'
 import withStyles from "@material-ui/core/styles/withStyles"
-import React, { useEffect} from "react"
+import React from "react"
 import {compose} from 'recompose'
 import PropTypes from 'prop-types'
 import {selectList} from "../../store/actions/list"
@@ -18,21 +18,14 @@ const styles = () => ({
 })
 
 
-export const TodoListPage = ({t, classes, lists, tasks, selectList, selectedList}) => {
-
-  // For a future Feature
-  useEffect(() => {
-    if(!lists) return
-      if(!selectedList)
-        selectList(lists[0])
-  }, [lists,selectedList,selectList])
+export const TodoListPage = ({t, classes, lists, selectList, selectedList}) => {
 
   return (
     <>
      { selectedList &&
       <div className={classes.container}>
         <h2> {selectedList.name } </h2>
-        <TaskList tasks={tasks}/>
+        <TaskList/>
       </div>}
     </>
   )
@@ -47,7 +40,6 @@ const mapStateToProps = (state) => ({
 TodoListPage.propTypes = {
   t: PropTypes.func.isRequired,
   lists: PropTypes.array.isRequired,
-  tasks: PropTypes.array,
   selectList: PropTypes.func.isRequired,
 }
 

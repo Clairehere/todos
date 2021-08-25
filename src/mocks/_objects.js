@@ -30,7 +30,7 @@ export const tasks = [
     name : 'Freins',
     description : "Vérifier qu'ils soient efficaces et asymetriques",
     position:0,
-    isChecked : false,
+    isChecked : true,
     listId : 'firstList'
   },
   {
