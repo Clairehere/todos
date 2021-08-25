@@ -3,7 +3,7 @@ import {
 } from '../types'
 
 
-export const selectlist = list => dispatch =>
+export const selectList = list => dispatch =>
   dispatch({
     type: SELECT_LIST,
     payload: list,

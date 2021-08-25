@@ -28,7 +28,7 @@ export const tasks = [
   {
     id: 'firstTask',
     name : 'Freins',
-    description : "Verifier qu'ils soient efficaces et asymetriques",
+    description : "Vérifier qu'ils soient efficaces et asymetriques",
     position:0,
     isChecked : false,
     listId : 'firstList'
@@ -36,17 +36,25 @@ export const tasks = [
   {
     id: 'secondTask',
     name : 'Cap + Bille',
-    description : "Verifier qu'il diminue une fois puis deux et que la bille est à droite",
+    description : "Vérifier qu'il diminue une fois puis deux et que la bille est à droite",
     position:1,
     isChecked : false,
     listId : 'firstList'
   },
   {
     id: 'treeTask',
-    name : 'Avant la rotation',
-    description : "Vitese disponible, badin actif, pas d'alarme",
+    name : 'Action avant la rotation',
+    description : "Vitesse disponible, badin actif, pas d'alarme",
     position:2,
     isChecked : false,
     listId : 'firstList'
+  },
+  {
+    id: 'otherTask',
+    name : 'Pain',
+    description : null,
+    position:0,
+    isChecked : false,
+    listId : 'secondList'
   }
 ]

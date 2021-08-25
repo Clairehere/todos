@@ -1,5 +1,11 @@
 {
   "welcome": {
-    "title": "Bienvenue"
+    "title": "Bienvenue sur la merveille et étonannte application \uD83D\uDE01"
+  },
+  "priority": {
+    "title": "Priorité : ",
+    "low": "faible",
+    "middle": "moyenne",
+    "high": "élevée"
   }
 }
