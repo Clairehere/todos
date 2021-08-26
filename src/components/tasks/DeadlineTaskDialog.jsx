@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import {DialogActions, Dialog, DialogTitle, TextField, Button, DialogContent} from '@material-ui/core'
 import {compose} from "recompose";
 import {connect} from "react-redux";
-import { pushTask} from "../../store/actions/task"
+import {editList} from "../../store/actions/list"
 
 
-export function NewTaskDialog({open, handleClose, t, pushTask}) {
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
+export function DeadlineTaskDialog({open, handleClose, t, editList, selectedList}) {
+
+  const [time, setTime] = useState(0)
 
   const handleSubmit = e => {
     e.preventDefault()
-    pushTask({name, description})
+    editList({...selectedList, deadline: new Date(Date.now() + (time * 24 * 60 * 60 * 1000))})
     handleClose()
   }
 
@@ -25,27 +25,18 @@ export function NewTaskDialog({open, handleClose, t, pushTask}) {
       aria-labelledby="form-dialog-title"
     >
       <form onSubmit={handleSubmit}>
-        <DialogTitle id={t('task.tile')}>{t('task.tile')}</DialogTitle>
+        <DialogTitle id={t('task.tile')}>{t('Deadline')}</DialogTitle>
         <DialogContent>
           <TextField
-            autoFocus
+            label={t('Fin dans (en jours)')}
             required
-            onChange={e => setName(e.target.value)}
-            value={name || ''}
-            label={t('task.name')}
+            id="standard-basic"
+            autoFocus
+            value={time}
             margin="dense"
-            id="name"
-            type="text"
-            fullWidth
-          />
-          <TextField
-            onChange={e => setDescription(e.target.value)}
-            value={description || ''}
-            label={t('task.description')}
-            margin="dense"
-            id="description"
-            type="text"
-            fullWidth
+            onChange={e => setTime(e.target.value)}
+            onKeyPress={e => e.key === 'Enter' && handleSubmit()}
+            type={'number'}
           />
         </DialogContent>
         <DialogActions>
@@ -57,17 +48,22 @@ export function NewTaskDialog({open, handleClose, t, pushTask}) {
           </Button>
         </DialogActions>
       </form>
+
     </Dialog>
   )
 }
 
-NewTaskDialog.propTypes = {
+const mapStateToProps = (state) => ({
+  selectedList: state.data.selectedList || {},
+})
+
+DeadlineTaskDialog.propTypes = {
   handleClose: PropTypes.func.isRequired,
-  pushTask: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+  selectedList: PropTypes.object.isRequired,
+  editList: PropTypes.func.isRequired,
 }
 
 export default compose(
-
-  connect(null, {pushTask}))(NewTaskDialog)
+  connect(mapStateToProps, {editList}))(DeadlineTaskDialog)

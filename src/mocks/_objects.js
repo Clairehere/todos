@@ -19,8 +19,8 @@ export const lists = [
   {
     id : 'firstList',
     name : 'Action avant décollage',
-    createdAt: { toDate: () => new Date('01-01-2020')},
-    deadline: { toDate: () => new Date('08-30-2021')}
+    createdAt:  new Date('01-01-2020'),
+    deadline:  new Date('08-30-2021')
   }
 ]
 
@@ -30,7 +30,7 @@ export const tasks = [
     name : 'Freins',
     description : "Vérifier qu'ils soient efficaces et asymetriques",
     position:0,
-    isChecked : true,
+    isChecked : false,
     listId : 'firstList'
   },
   {

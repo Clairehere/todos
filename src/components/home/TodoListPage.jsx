@@ -25,6 +25,7 @@ const styles = () => ({
 
 export const TodoListPage = ({t, classes, lists, selectedList,editList}) => {
   const [dialogOpen, setDialogOpen] = useState(false)
+
   return (
     <>
       {selectedList &&
