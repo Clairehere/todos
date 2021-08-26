@@ -10,9 +10,10 @@ export default (state = initialState, action) => {
       return { ...state, selectedList: action.payload }
 
     case CHECK_TASK:{
-      let taskIndex = state.initialTasks.findIndex(t => t.id === action.payload.id);
-      state.initialTasks[taskIndex].isChecked = !state.initialTasks[taskIndex].isChecked
-      return { ...state, initialTasks: state.initialTasks }
+      let checked = state.initialTasks
+      let taskIndex = checked.findIndex(t => t.id === action.payload.id);
+      checked[taskIndex].isChecked = !checked[taskIndex].isChecked
+      return { ...state, initialTasks: checked}
     }
 
     default:

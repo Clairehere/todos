@@ -41,6 +41,7 @@ TodoListPage.propTypes = {
   t: PropTypes.func.isRequired,
   lists: PropTypes.array.isRequired,
   selectList: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
 }
 
 export default compose(

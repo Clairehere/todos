@@ -7,5 +7,10 @@
     "low": "faible",
     "middle": "moyenne",
     "high": "élevée"
+  },
+  "task": {
+    "is-checked" : "Fait",
+    "isn-t-checked": " À faire",
+    "none": "Aucune tâche"
   }
 }

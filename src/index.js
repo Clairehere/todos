@@ -120,14 +120,14 @@ i18next.init({
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
+    <React.Fragment>
       <I18nextProvider i18n={i18next}>
       <ThemeProvider theme={theme}>
         <CssBaseline/>
         <App/>
       </ThemeProvider>
       </I18nextProvider>
-    </React.StrictMode>
+    </React.Fragment>
   </Provider>,
   document.getElementById('root')
 );

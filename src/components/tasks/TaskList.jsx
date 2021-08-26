@@ -10,7 +10,12 @@ import {connect} from "react-redux"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import withStyles from "@material-ui/core/styles/withStyles"
 import {withTranslation} from "react-i18next"
-import {checkTask} from "../../store/actions/task";
+import {checkTask} from "../../store/actions/task"
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
+import IconButton from "@material-ui/core/IconButton"
+import EditIcon from '@material-ui/icons/Edit'
+import { withRouter } from 'react-router-dom'
+import { TASK} from "../../constants/routes"
 
 const styles = theme => ({
   root: {
@@ -20,8 +25,7 @@ const styles = theme => ({
   },
 })
 
-export const TaskList = ({ t, tasks, classes, checkTask }) => {
-
+export const TaskList = ({ t, history, tasks, classes, checkTask }) => {
  return(
    <List aria-label="tasks" className={classes.root}>
      {tasks.sort(t => t.isChecked ? 1 : -1).map(task =>{
@@ -42,6 +46,11 @@ export const TaskList = ({ t, tasks, classes, checkTask }) => {
            primary={task.name}
            secondary={task.description?.length > 15 ?  task.description.substr(0, 15) + '...'  : task.description}
          />
+         <ListItemSecondaryAction>
+           <IconButton edge="end" aria-label="push" onClick={()=> history.push(TASK.replace(':id?', task.id))}>
+             <EditIcon />
+           </IconButton>
+         </ListItemSecondaryAction>
        </ListItem>
        <Divider/>
        </div>)
@@ -62,9 +71,12 @@ TaskList.propTypes = {
   t: PropTypes.func.isRequired,
   tasks: PropTypes.array.isRequired,
   checkTask: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 }
 
 export default compose(
+  withRouter,
   withStyles(styles),
   withTranslation('common'),
   connect(mapStateToProps, {checkTask}),
