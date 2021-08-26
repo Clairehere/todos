@@ -20,7 +20,7 @@ export const lists = [
     id : 'firstList',
     name : 'Action avant décollage',
     createdAt: { toDate: () => new Date('01-01-2020')},
-    deadline: { toDate: () => new Date('05-01-2021')}
+    deadline: { toDate: () => new Date('08-30-2021')}
   }
 ]
 

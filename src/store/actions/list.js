@@ -1,4 +1,5 @@
 import {
+  EDIT_LIST,
   SELECT_LIST
 } from '../types'
 
@@ -9,3 +10,9 @@ export const selectList = list => dispatch =>
     payload: list,
   })
 
+
+export const editList = list => dispatch =>
+  dispatch({
+    type: EDIT_LIST,
+    payload: list,
+  })
