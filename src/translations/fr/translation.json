@@ -9,8 +9,16 @@
     "high": "élevée"
   },
   "task": {
+    "tile": "Tâche",
+    "name": "Nom",
+    "description": "Description",
     "is-checked" : "Fait",
     "isn-t-checked": " À faire",
-    "none": "Aucune tâche"
+    "none": "Aucune tâche",
+    "add": "Ajouter une nouvelle tâche"
+  },
+  "action": {
+    "cancel": "Annuler",
+    "submit": "Valider"
   }
 }
