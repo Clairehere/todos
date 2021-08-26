@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> TodoListPage --- Snapshot +++capturing Snapshot of TodoListPage - no list 1`] = `ShallowWrapper {}`;
+
+exports[`>>> TodoListPage --- Snapshot +++capturing Snapshot of TodoListPage - with list 1`] = `ShallowWrapper {}`;
+
