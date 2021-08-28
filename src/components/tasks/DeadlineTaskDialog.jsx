@@ -30,12 +30,13 @@ export function DeadlineTaskDialog({open, handleClose, t, editList, selectedList
           <TextField
             label={t('Fin dans (en jours)')}
             required
+            InputProps={{ inputProps: { min: 0 } }}
             id="standard-basic"
             autoFocus
             value={time}
             margin="dense"
             onChange={e => setTime(e.target.value)}
-            onKeyPress={e => e.key === 'Enter' && handleSubmit()}
+            onKeyPress={e => e.key === 'Enter' && handleSubmit}
             type={'number'}
           />
         </DialogContent>

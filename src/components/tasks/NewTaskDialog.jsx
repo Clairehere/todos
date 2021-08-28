@@ -10,10 +10,13 @@ export function NewTaskDialog({open, handleClose, t, pushTask}) {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
 
+
   const handleSubmit = e => {
     e.preventDefault()
     pushTask({name, description})
     handleClose()
+    setName('')
+    setDescription("")
   }
 
   return (

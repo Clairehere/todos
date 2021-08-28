@@ -14,7 +14,8 @@ import DeadlineTaskDialog from "../tasks/DeadlineTaskDialog"
 const styles = makeStyles({
   root: {
     display: 'flex',
-    marginTop: '10px'
+    marginTop: '10px',
+    justifyContent: 'center'
   },
   flash: {
     color: props => props.alertDate ? 'red' : 'black',
@@ -41,7 +42,7 @@ export const ListTitle = ({t, defaultValue, setValue}) => {
   const alertDate = useMemo(() => {
     if (!defaultValue || !defaultValue.deadline) return
     return (defaultValue.deadline < date)
-  }, [defaultValue?.deadline])
+  }, [defaultValue, date])
 
   const style = styles({alertDate})
 

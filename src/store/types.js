@@ -7,3 +7,5 @@ export const EDIT_LIST = 'EDIT_LIST'
 // TASK
 export const CHECK_TASK = 'CHECK_TASK'
 export const PUSH_TASK = 'PUSH_TASK'
+export const REMOVE_TASK = 'REMOVE_TASK'
+export const EDIT_TASK = 'EDIT_TASK'

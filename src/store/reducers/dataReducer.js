@@ -1,4 +1,4 @@
-import {CHECK_TASK, EDIT_LIST, PUSH_TASK, SELECT_LIST} from '../types'
+import {CHECK_TASK, EDIT_LIST, PUSH_TASK, SELECT_LIST, REMOVE_TASK,EDIT_TASK} from '../types'
 import {lists, tasks} from "../../mocks/_objects"
 
 
@@ -31,6 +31,17 @@ export default (state = initialState, action) => {
         }
       ]
       return {...state, initialTasks: tasks}
+    }
+
+    case REMOVE_TASK : {
+      let filtered = state.initialTasks
+      return {...state, initialTasks:filtered.filter(task => task.id !== action.payload.id)}
+    }
+    case EDIT_TASK : {
+      let edited = state.initialTasks
+      let taskIndex = edited.findIndex(t => t.id === action.payload.id)
+      edited[taskIndex] = action.payload
+      return {...state, initialTasks: edited}
     }
 
     default:
